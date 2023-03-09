@@ -24,3 +24,16 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+export const ADD_ADD = gql`
+mutation addAdd($name: String, $cityState: String, $streetAddress: String, $zipCode: String, $notes: String, $phone: String) {
+  addAdd(name: $name, cityState: $cityState, streetAddress: $streetAddress, zipCode: $zipCode, notes: $notes, phone: $phone) {
+    _id
+    cityState
+    name
+    notes
+    phone
+    streetAddress
+    username
+    zipCode
+  }
+}`;

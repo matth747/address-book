@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Address } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -40,6 +40,14 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    addAdd: async (parent, args, context) => {
+      if (context.user) {
+        const newAdd = await Address.create({ ...args, username: context.user.username })
+        return newAdd;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+
+    }
 
 
   }
