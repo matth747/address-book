@@ -14,7 +14,10 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-
+    addresses: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Address.find(params).sort({ createdAt: -1 });
+    },
   },
 
   Mutation: {
@@ -42,7 +45,12 @@ const resolvers = {
     },
     addAdd: async (parent, args, context) => {
       if (context.user) {
-        const newAdd = await Address.create({ ...args, username: context.user.username })
+        const newAdd = await Address.create({ ...args, username: context.user.username });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id},
+          { $addToSet: { addresses: newAdd._id}}
+        )
         return newAdd;
       }
       throw new AuthenticationError('You need to be logged in!');

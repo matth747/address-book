@@ -5,7 +5,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    addresses: [Address]
+    addresses: [Address]!
   }
   type Address {
   _id: ID
@@ -25,13 +25,13 @@ const typeDefs = gql`
 
   type Query {
     me: User
-
+    addresses(username: String): [Address]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addAdd(name: String, streetAddress: String, cityState: String, zipCode: String, notes: String, phone: String): Address
+    addAdd(name: String!, streetAddress: String!, cityState: String!, zipCode: String!, notes: String!, phone: String!): Address
   }
 `;
 
