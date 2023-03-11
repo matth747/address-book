@@ -41,11 +41,7 @@ const addressSchema = new Schema(
       required: true
     }
   },
-  {
-    toJSON: {
-      getters: true
-    }
-  }
+
 );
 
 
