@@ -24,16 +24,16 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
 export const ADD_ADD = gql`
-mutation addAdd($name: String, $cityState: String, $streetAddress: String, $zipCode: String, $notes: String, $phone: String) {
-  addAdd(name: $name, cityState: $cityState, streetAddress: $streetAddress, zipCode: $zipCode, notes: $notes, phone: $phone) {
-    _id
-    cityState
+mutation AddAdd($name: String!, $streetAddress: String!, $cityState: String!, $zipCode: String!, $notes: String!, $phone: String!) {
+  addAdd(name: $name, streetAddress: $streetAddress, cityState: $cityState, zipCode: $zipCode, notes: $notes, phone: $phone) {
     name
+    streetAddress
+    cityState
+    zipCode
     notes
     phone
-    streetAddress
-    username
-    zipCode
   }
-}`;
+}
+`

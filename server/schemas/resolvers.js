@@ -8,16 +8,14 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
+          .populate('addresses')
 
         return userData;
       }
 
       throw new AuthenticationError('Not logged in');
     },
-    addresses: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Address.find(params).sort({ createdAt: -1 });
-    },
+
   },
 
   Mutation: {
@@ -50,7 +48,7 @@ const resolvers = {
         await User.findOneAndUpdate(
           { _id: context.user._id},
           { $addToSet: { addresses: newAdd._id}}
-        )
+        )                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
         return newAdd;
       }
       throw new AuthenticationError('You need to be logged in!');

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Auth from '../../utils/auth'
+
 
 import { useMutation } from '@apollo/client';
 import { ADD_ADD } from '../../utils/mutations';
@@ -7,13 +9,19 @@ import { ADD_ADD } from '../../utils/mutations';
 const AddForm = () => {
   const [addState, setAddState] = useState({
     name: '',
-    streetAddress: '',
     cityState: '',
+    streetAddress: '',
     zipCode: '',
     notes: '',
     phone: '',
 
   });
+  let username = "";
+  const expired = Auth.isTokenExpired(Auth.getToken());
+  if (!expired) {
+    username = Auth.getUsername();
+  }
+
 
   const [addAdd, { error }] = useMutation(ADD_ADD)
 
@@ -31,7 +39,7 @@ const AddForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-        await addAdd({
+      await addAdd({
         variables: { ...addState },
       });
     window.location.reload()
@@ -49,7 +57,7 @@ const AddForm = () => {
         <div className="card">
           <h4 className="card-header">ADD_ADD</h4>
           <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
+            <form>
                 <input
                 className="form-input"
                 placeholder="Enter Name"
@@ -105,16 +113,12 @@ const AddForm = () => {
                 value={addState.phone}
                 onChange={handleChange}
               />
-           <div class ="flex flex-col justify-center items-center">
-              <button className=" w-100" type="submit"
-            ><a href="#_" className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
-            <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute "></span>
-            <span className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
+           <div className
+            ="flex flex-col justify-center items-center">
+            <button onClick={handleFormSubmit}>
             <span className="relative text-white">Click to add Address</span>
-            </span>
-            </a>
-              </button>
-              </div>
+            </button>
+            </div>
             </form>
 
             {error && <div className='text-center'>😕Address entry failed😕</div>}
