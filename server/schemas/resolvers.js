@@ -15,6 +15,16 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    // address: async (parent, args, context) => {
+    //   if (context.user) {
+    //     const oneAdd = await Address.findById({
+
+    //     })
+    //   }
+    // }
+    address: async (parent, { _id }) => {
+      return Address.findOne({ _id });
+    }
 
   },
 
@@ -53,6 +63,26 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
 
+    },
+    editAdd: async (parent, {addId, name, streetAddress, cityState, zipCode, notes, phone}, context) => {
+      if (context.user) {
+        const newAdd = await Address.findOneAndUpdate(
+          {_id: addId },
+          { name: name, streetAddress: streetAddress, cityState: cityState, zipCode: zipCode, notes: notes, phone: phone},
+          { new: true, runValidators: true }
+          )
+          return newAdd;
+      }
+    },
+    removeAdd: async (parent, {addId }, context) => {
+      if(context.user) {
+        const deletedAdd = await Address.findOneAndDelete(
+          {_id: addId },
+          { new: true, runValidators: true }
+
+        )
+        return deletedAdd;
+      }
     }
 
 

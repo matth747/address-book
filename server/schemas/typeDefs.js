@@ -25,13 +25,15 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    addresses(username: String): [Address]
+    address(_id:ID!): Address
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addAdd(name: String!, streetAddress: String!, cityState: String!, zipCode: String!, notes: String!, phone: String!): Address
+    editAdd(addId: ID!, name: String!, streetAddress: String!, cityState: String!, zipCode: String!, notes: String!, phone: String!): Address
+    removeAdd(addId: ID!): Address
   }
 `;
 

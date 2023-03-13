@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const AddList = ({addresses}) => {
@@ -19,7 +20,9 @@ const AddList = ({addresses}) => {
                     <li>{address.zipCode}</li>
                     <li>{address.notes}</li>
                     <li>{address.phone}</li>
+                    <li><Link to={""}>Edit</Link></li>
                 </ul>
+                
             ))}
         </div>
     )

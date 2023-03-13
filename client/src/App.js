@@ -56,6 +56,10 @@ function App() {
                 path="/signup"
                 element={<Signup />}
               />
+              {/* <Route 
+                path="/adds/:addId" 
+                element={<SingleAdd />}
+              /> */}
             </Routes>
           </div>
           <Footer />
