@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const AddList = ({addresses}) => {
-    if (!addresses.length) {
-        return <h3>No Addresses Yet</h3>;
-      }
+
 
     return (
         <div>
@@ -13,14 +11,17 @@ const AddList = ({addresses}) => {
                 Addresses
             </h4>
             {addresses && addresses.map((address) => (
+
+
                 <ul>
+                    <li>{console.log(address)}</li>
                     <li>{address.name}</li>
                     <li>{address.streetAddress}</li>
                     <li>{address.cityState}</li>
                     <li>{address.zipCode}</li>
                     <li>{address.notes}</li>
                     <li>{address.phone}</li>
-                    <li><Link to={""}>Edit</Link></li>
+                    <li><Link to={`adds/${address._id}`}>Edit</Link></li>
                 </ul>
                 
             ))}

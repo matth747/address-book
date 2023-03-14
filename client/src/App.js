@@ -10,7 +10,7 @@ import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import OneAdd from './pages/OneAdd';
 import Home from './pages/Home';
 import Login from './pages/Login';
 
@@ -56,10 +56,10 @@ function App() {
                 path="/signup"
                 element={<Signup />}
               />
-              {/* <Route 
+              <Route 
                 path="/adds/:addId" 
-                element={<SingleAdd />}
-              /> */}
+                element={<OneAdd />}
+              />
             </Routes>
           </div>
           <Footer />

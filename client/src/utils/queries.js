@@ -19,3 +19,17 @@ query Query {
   }
 }
 `;
+
+export const QUERY_ADD = gql`
+query Query($id: ID!) {
+  address(_id: $id) {
+    _id
+    cityState
+    name
+    notes
+    phone
+    streetAddress
+    username
+    zipCode
+  }
+}`
