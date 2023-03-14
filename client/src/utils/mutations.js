@@ -37,3 +37,32 @@ mutation AddAdd($name: String!, $streetAddress: String!, $cityState: String!, $z
   }
 }
 `
+
+export const EDIT_ADD = gql`
+mutation Mutation($addId: ID!, $name: String!, $streetAddress: String!, $cityState: String!, $zipCode: String!, $notes: String!, $phone: String!) {
+  editAdd(addId: $addId, name: $name, streetAddress: $streetAddress, cityState: $cityState, zipCode: $zipCode, notes: $notes, phone: $phone) {
+    _id
+    name
+    streetAddress
+    cityState
+    zipCode
+    notes
+    phone
+    username
+  }
+}`
+
+export const REMOVE_ADD = gql`
+mutation Mutation($addId: ID!) {
+  removeAdd(addId: $addId) {
+    _id
+    cityState
+    notes
+    name
+    phone
+    streetAddress
+    username
+    zipCode
+  }
+}
+`

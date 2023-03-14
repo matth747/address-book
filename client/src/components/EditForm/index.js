@@ -1,51 +1,50 @@
 import React, { useState } from 'react';
 import Auth from '../../utils/auth'
-
+import { useParams } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
-import { ADD_ADD } from '../../utils/mutations';
+import { EDIT_ADD } from '../../utils/mutations';
 
+const EditForm = () => {
+  const { addId } = useParams();
 
-const AddForm = () => {
-  const [addState, setAddState] = useState({
+    const [editState, setEditState] = useState({
     name: '',
     cityState: '',
     streetAddress: '',
     zipCode: '',
     notes: '',
     phone: '',
-
   });
+
   let username = "";
   const expired = Auth.isTokenExpired(Auth.getToken());
   if (!expired) {
     username = Auth.getUsername();
   }
-
-
-  const [addAdd, { error }] = useMutation(ADD_ADD)
+  const [editAdd, { error }] = useMutation(EDIT_ADD)
 
   // update state based on form input changes
     const handleChange = (event) => {
     const { name, value } = event.target;
-    setAddState({
-        ...addState,
+    setEditState({
+        ...editState,
         [name]: value,
     })
-
   };
-
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(editState)
     try {
-      await addAdd({
-        variables: { ...addState },
+      await editAdd({
+            
+        variables: { addId, ...editState },
       });
     window.location.reload()
 
       // clear form value
-      setAddState('');
+      setEditState('');
     } catch (e) {
       console.error(e);
     }
@@ -55,7 +54,7 @@ const AddForm = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">
-          <h4 className="card-header">ADD_ADD</h4>
+          <h4 className="card-header">EDIT_ADD</h4>
           <div className="card-body">
             <form>
                 <input
@@ -64,7 +63,7 @@ const AddForm = () => {
                 name="name"
                 type="name"
                 id="name"
-                value={addState.name}
+                value={editState.name}
                 onChange={handleChange}
               />
               <input
@@ -73,16 +72,16 @@ const AddForm = () => {
                 name="streetAddress"
                 type="streetAddress"
                 id="streetAddress"
-                value={addState.streetAddress}
+                value={editState.streetAddress}
                 onChange={handleChange}
               />
               <input
                 className="form-input"
-                placeholder="Enter City, State"
+                placeholder="Enter city, State"
                 name="cityState"
                 type="cityState"
                 id="cityState"
-                value={addState.cityState}
+                value={editState.cityState}
                 onChange={handleChange}
               />
               <input
@@ -91,7 +90,7 @@ const AddForm = () => {
                 name="zipCode"
                 type="zipCode"
                 id="zipCode"
-                value={addState.zipCode}
+                value={editState.zipCode}
                 onChange={handleChange}
               />
 
@@ -101,7 +100,7 @@ const AddForm = () => {
                 name="notes"
                 type="notes"
                 id="notes"
-                value={addState.notes}
+                value={editState.notes}
                 onChange={handleChange}
               />
                 <input
@@ -110,7 +109,7 @@ const AddForm = () => {
                 name="phone"
                 type="phone"
                 id="phone"
-                value={addState.phone}
+                value={editState.phone}
                 onChange={handleChange}
               />
            <div className
@@ -129,4 +128,4 @@ const AddForm = () => {
   );
 };
 
-export default AddForm;
+export default EditForm;
