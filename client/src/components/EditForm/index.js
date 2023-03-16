@@ -51,7 +51,7 @@ const EditForm = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <div className="row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">
           <h4 className="card-header">EDIT_ADD</h4>
@@ -112,19 +112,18 @@ const EditForm = () => {
                 value={editState.phone}
                 onChange={handleChange}
               />
-           <div className
-            ="flex flex-col justify-center items-center">
-            <button onClick={handleFormSubmit}>
-            <span className="relative text-white">Click to add Address</span>
+
+            <button className="btn btn-primary" onClick={handleFormSubmit}>
+            Click to Edit Address
             </button>
-            </div>
+
             </form>
 
             {error && <div className='text-center'>😕Address entry failed😕</div>}
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

@@ -13,15 +13,14 @@ const AddList = ({addresses}) => {
             {addresses && addresses.map((address) => (
 
 
-                <ul>
-                    <li>{console.log(address)}</li>
-                    <li>{address.name}</li>
-                    <li>{address.streetAddress}</li>
-                    <li>{address.cityState}</li>
-                    <li>{address.zipCode}</li>
-                    <li>{address.notes}</li>
-                    <li>{address.phone}</li>
-                    <li><Link to={`adds/${address._id}`}>Edit</Link></li>
+                <ul key={address._id}>
+                    <li key={address.name}>{address.name}</li>
+                    <li key={address.streetAddress}>{address.streetAddress}</li>
+                    <li key={address.cityState}>{address.cityState}</li>
+                    <li key={address.zipCode}>{address.zipCode}</li>
+                    <li key={address.notes}>{address.notes}</li>
+                    <li key={address.phone}>{address.phone}</li>
+                    <li key={address._id}><Link to={`adds/${address._id}`}>Edit</Link></li>
                 </ul>
                 
             ))}

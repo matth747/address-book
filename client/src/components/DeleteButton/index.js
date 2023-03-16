@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 
 import { REMOVE_ADD } from '../../utils/mutations';
-const Delete = () => {
+const DeleteButton = () => {
     const { addId } = useParams();
 
     const [deleteAdd, {error}] = useMutation(REMOVE_ADD)
@@ -22,10 +22,12 @@ const Delete = () => {
         }
       }
     return (
-        <button onClick={deleteHandler}>
+
+        <button className='btn btn-danger' onClick={deleteHandler}>
         Delete
         </button>
+
     )
 }
 
-export default Delete;
+export default DeleteButton;

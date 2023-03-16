@@ -16,10 +16,16 @@ const Home = () => {
   const loggedIn = Auth.loggedIn();
 
   return (
-    <main>
+    <main className='container'>
+        {Auth.loggedIn() ? (
+          <>
         <AddForm/>
         <AddList
         addresses={me.addresses}/>
+        </>
+        ) : (
+          <h3>Please log in to save addresses!</h3>
+        )}
     </main>
   );
 };

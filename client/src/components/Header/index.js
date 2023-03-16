@@ -22,7 +22,7 @@ const Header = () => {
               type="button"
               className=""><a href="#_" className="">
 
-              <span onClick={logout} className="relative text-white">Click to Logout</span>
+              <span onClick={logout} className="btn btn-info">Click to Logout</span>
 
               </a>
             </button><br></br>
@@ -32,7 +32,7 @@ const Header = () => {
               <><button
               type="button"
               className=""><a href="#_" className="">
-              <span className="relative text-white"><Link to="/login">Login</Link></span>
+              <span className="btn btn-info"><Link to="/login">Login</Link></span>
 
               </a>
             </button>
@@ -40,7 +40,7 @@ const Header = () => {
               type="button"
               className=""><a href="#_" className="">
 
-              <span className="relative text-white"><Link to="/Signup">Sign Up</Link></span>
+              <span className="btn btn-info"><Link to="/Signup">Sign Up</Link></span>
 
               </a>
             </button>
