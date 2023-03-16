@@ -6,22 +6,25 @@ const AddList = ({addresses}) => {
 
 
     return (
-        <div>
-            <h4>
-                Addresses
-            </h4>
+        <div className='row'>
+            <h3 className='col-12'>
+                Contacts
+            </h3>
             {addresses && addresses.map((address) => (
 
 
-                <ul key={address._id}>
-                    <li key={address.name}>{address.name}</li>
-                    <li key={address.streetAddress}>{address.streetAddress}</li>
-                    <li key={address.cityState}>{address.cityState}</li>
-                    <li key={address.zipCode}>{address.zipCode}</li>
-                    <li key={address.notes}>{address.notes}</li>
-                    <li key={address.phone}>{address.phone}</li>
-                    <li key={address._id}><Link to={`adds/${address._id}`}>Edit</Link></li>
-                </ul>
+                <div className='card col-12 col-md-6' key={address._id}>
+                    <div className='card-body'>
+                    <h3 key={address.name}>{address.name}</h3>
+                    <h5 key={address.streetAddress}>{address.streetAddress}</h5>
+                    <h5 key={address.cityState}>{address.cityState}</h5>
+                    <h5 key={address.zipCode}>{address.zipCode}</h5>
+                    <h5 key={address.notes}>{address.notes}</h5>
+                    <h5 key={address.phone}>{address.phone}</h5>
+                    <h5 key={address._id}><Link to={`adds/${address._id}`}>Edit/Delete</Link></h5>
+                </div>
+                </div>
+
                 
             ))}
         </div>

@@ -13,15 +13,16 @@ const SingleAdd = () => {
         console.log(data)
         
     return (
-        <ul>
-        <li key={add.name}>{add.name}</li>
-        <li key={add.streetAddress}>{add.streetAddress}</li>
-        <li key={add.cityState}>{add.cityState}</li>
-        <li key={add.zipCode}>{add.zipCode}</li>
-        <li key={add.notes}>{add.notes}</li>
-        <li key={add.phone}>{add.phone}</li>
-        
-        </ul>
+        <div className='card col-12 col-md-6'>
+        <div className='card-body'>
+        <h3 key={add.name}>{add.name}</h3>
+        <h5 key={add.streetAddress}>{add.streetAddress}</h5>
+        <h5 key={add.cityState}>{add.cityState}</h5>
+        <h5 key={add.zipCode}>{add.zipCode}</h5>
+        <h5 key={add.notes}>{add.notes}</h5>
+        <h5 key={add.phone}>{add.phone}</h5>
+        </div>
+                </div>
     )
 }
 

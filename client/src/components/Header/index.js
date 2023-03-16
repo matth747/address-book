@@ -10,39 +10,26 @@ const Header = () => {
         Auth.logout();
       };
     return (
-        <header className="bg-secondary mb-4 py-2 flex-row align-center">
-        <div className="container flex-row justify-space-between-lg justify-center align-center">
+        <header className="">
+        <div className="">
           <Link to="">
             <h1>Address Book</h1> 
           </Link>
   
           <nav className="text-center">
             {Auth.loggedIn() ? (
-              <>          <button
-              type="button"
-              className=""><a href="#_" className="">
-
-              <span onClick={logout} className="btn btn-info">Click to Logout</span>
-
-              </a>
-            </button><br></br>
-
-              </>
-            ) : (
-              <><button
-              type="button"
-              className=""><a href="#_" className="">
-              <span className="btn btn-info"><Link to="/login">Login</Link></span>
-
-              </a>
+              <>          
+              <button onClick={logout} className="btn btn-info">Click to Logout
             </button>
-            <button
-              type="button"
-              className=""><a href="#_" className="">
+            <br></br>
+            <hr></hr>
+            </>
+            ) : (
+              <>
+              <button className="btn btn-info"><Link to="/login">Login</Link>
+            </button>
 
-              <span className="btn btn-info"><Link to="/Signup">Sign Up</Link></span>
-
-              </a>
+            <button className="btn btn-info"><Link to="/Signup">Sign Up</Link>
             </button>
               </>
             )}
