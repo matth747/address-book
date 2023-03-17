@@ -51,14 +51,14 @@ const EditForm = () => {
   };
 
   return (
-    <div className="row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">EDIT_ADD</h4>
+    <div className="row">
+
+        <div className="card col-12">
+          <h4 className="card-header">Edit Address</h4>
           <div className="card-body">
             <form>
                 <input
-                className="form-input"
+                className="form-input mx-1"
                 placeholder="Enter Name"
                 name="name"
                 type="name"
@@ -67,7 +67,7 @@ const EditForm = () => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input mx-1"
                 placeholder="Enter the street address"
                 name="streetAddress"
                 type="streetAddress"
@@ -76,7 +76,7 @@ const EditForm = () => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input mx-1"
                 placeholder="Enter city, State"
                 name="cityState"
                 type="cityState"
@@ -85,7 +85,7 @@ const EditForm = () => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input mx-1"
                 placeholder="Enter Zip"
                 name="zipCode"
                 type="zipCode"
@@ -95,7 +95,7 @@ const EditForm = () => {
               />
 
                 <input
-                className="form-input"
+                className="form-input mx-1"
                 placeholder="Enter notes"
                 name="notes"
                 type="notes"
@@ -104,7 +104,7 @@ const EditForm = () => {
                 onChange={handleChange}
               />
                 <input
-                className="form-input"
+                className="form-input mx-1"
                 placeholder="Enter phone"
                 name="phone"
                 type="phone"
@@ -113,15 +113,12 @@ const EditForm = () => {
                 onChange={handleChange}
               />
 
-            <button className="btn btn-primary" onClick={handleFormSubmit}>
+            </form>
+            <button className="btn btn-primary mt-3" onClick={handleFormSubmit}>
             Click to Edit Address
             </button>
-
-            </form>
-
             {error && <div className='text-center'>😕Address entry failed😕</div>}
           </div>
-        </div>
       </div>
     </div>
   );

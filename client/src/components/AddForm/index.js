@@ -52,14 +52,14 @@ const AddForm = () => {
   };
   
   return (
-    <div className="flex-row justify-center mb-4">
-    <div className="col-12 col-md-6">
-    <div className="card">
+    <div className="row mb-4">
+
+    <div className="card col-12">
     <h4 className="card-header">Address Book</h4>
     <div className="card-body">
     <form>
     <input
-    className="form-input"
+    className="form-input mx-1"
     placeholder="Enter Name"
     name="name"
     type="name"
@@ -68,7 +68,7 @@ const AddForm = () => {
     onChange={handleChange}
     />
     <input
-    className="form-input"
+    className="form-input mx-1"
     placeholder="Enter the street address"
     name="streetAddress"
     type="streetAddress"
@@ -77,7 +77,7 @@ const AddForm = () => {
     onChange={handleChange}
     />
     <input
-    className="form-input"
+    className="form-input mx-1"
     placeholder="Enter City, State"
     name="cityState"
     type="cityState"
@@ -86,7 +86,7 @@ const AddForm = () => {
     onChange={handleChange}
     />
     <input
-    className="form-input"
+    className="form-input mx-1"
     placeholder="Enter Zip"
     name="zipCode"
     type="zipCode"
@@ -96,7 +96,7 @@ const AddForm = () => {
     />
     
     <input
-    className="form-input"
+    className="form-input mx-1"
     placeholder="Enter notes"
     name="notes"
     type="notes"
@@ -105,7 +105,7 @@ const AddForm = () => {
     onChange={handleChange}
     />
     <input
-    className="form-input"
+    className="form-input mx-1"
     placeholder="Enter phone"
     name="phone"
     type="phone"
@@ -114,15 +114,15 @@ const AddForm = () => {
     onChange={handleChange}
     />
     
-    <button className="btn btn-success" onClick={handleFormSubmit}>
-    Click to add Address
-    </button>
+
     
     </form>
-    
+    <button className="btn btn-success mt-3" onClick={handleFormSubmit}>
+    Click to add Address
+    </button>
     {error && <div className='text-center'>😕Address entry failed😕</div>}
     </div>
-    </div>
+
     </div>
     </div>
     );

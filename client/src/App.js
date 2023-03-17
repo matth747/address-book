@@ -41,9 +41,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div >
+        <div className='bg_color'>
           <Header />
-          <div className="container">
+          <div className="container ">
             <Routes>
               <Route
                 path=""
@@ -63,6 +63,7 @@ function App() {
               />
             </Routes>
           </div>
+          <hr></hr>
           <Footer />
         </div>
       </Router>

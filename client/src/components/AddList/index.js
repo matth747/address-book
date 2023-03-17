@@ -15,7 +15,7 @@ const AddList = ({addresses}) => {
 
                 <div className='card col-12 col-md-6' key={address._id}>
                     <div className='card-body'>
-                    <h3 key={address.name}>{address.name}</h3>
+                    <h3 className='card-header' key={address.name}>{address.name}</h3>
                     <h5 key={address.streetAddress}>{address.streetAddress}</h5>
                     <h5 key={address.cityState}>{address.cityState}</h5>
                     <h5 key={address.zipCode}>{address.zipCode}</h5>

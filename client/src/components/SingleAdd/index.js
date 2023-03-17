@@ -13,7 +13,8 @@ const SingleAdd = () => {
         console.log(data)
         
     return (
-        <div className='card col-12 col-md-6'>
+        <div className="row mt-3">
+        <div className='card col-12 '>
         <div className='card-body'>
         <h3 key={add.name}>{add.name}</h3>
         <h5 key={add.streetAddress}>{add.streetAddress}</h5>
@@ -22,7 +23,11 @@ const SingleAdd = () => {
         <h5 key={add.notes}>{add.notes}</h5>
         <h5 key={add.phone}>{add.phone}</h5>
         </div>
-                </div>
+        </div>
+
+
+
+        </div>
     )
 }
 

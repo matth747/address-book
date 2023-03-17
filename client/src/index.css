@@ -4,3 +4,7 @@ a {
 a:visited {
 text-decoration: none;
 }
+
+.bg_color {
+    background-color: rgb(177, 226, 206);
+}

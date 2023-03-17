@@ -22,11 +22,11 @@ const DeleteButton = () => {
         }
       }
     return (
-
-        <button className='btn btn-danger' onClick={deleteHandler}>
+      <div className='row mt-3'>
+        <button className='btn btn-danger col-2' onClick={deleteHandler}>
         Delete
         </button>
-
+      </div>
     )
 }
 

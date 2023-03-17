@@ -47,7 +47,7 @@ const Login = (props) => {
           <div className="card-body">
             <form onSubmit={handleFormSubmit}>
               <input
-                className="form-input"
+                className="form-input mx-1"
                 placeholder="Enter Your Email"
                 name="email"
                 type="email"
@@ -56,7 +56,7 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input mx-1"
                 placeholder="Enter Your Password"
                 name="password"
                 type="password"
@@ -65,7 +65,7 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <div class ="flex flex-col justify-center items-center">
-              <button onClick={handleFormSubmit} className="btn btn-primary">Click to 
+              <button onClick={handleFormSubmit} className="btn btn-primary mt-3">Click to Login
               </button>
               </div>
             </form>

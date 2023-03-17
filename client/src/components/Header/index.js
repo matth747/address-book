@@ -13,7 +13,7 @@ const Header = () => {
         <header className="">
         <div className="">
           <Link to="">
-            <h1>Address Book</h1> 
+            <h1 className='m-3'>Address Book</h1> 
           </Link>
   
           <nav className="text-center">
@@ -26,12 +26,15 @@ const Header = () => {
             </>
             ) : (
               <>
-              <button className="btn btn-info"><Link to="/login">Login</Link>
+              <button className="btn btn-info mx-1"><Link to="/login">Login</Link>
             </button>
 
-            <button className="btn btn-info"><Link to="/Signup">Sign Up</Link>
+            <button className="btn btn-info mx-1"><Link to="/Signup">Sign Up</Link>
             </button>
+            <br></br>
+            <hr></hr>
               </>
+              
             )}
           </nav>
         </div>
