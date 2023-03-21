@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
+        <div className='headfoot mt-3'>
+            
         <footer className='container'>
             <div className='row'>
             <h4 className='col-12 mb-2'>Created by Matthew Hanson</h4>
@@ -19,6 +21,7 @@ const Footer = () => {
             </div>
             </div>
         </footer>
+        </div>
     )
 }
 

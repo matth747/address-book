@@ -63,7 +63,6 @@ function App() {
               />
             </Routes>
           </div>
-          <hr></hr>
           <Footer />
         </div>
       </Router>

@@ -10,35 +10,37 @@ const Header = () => {
         Auth.logout();
       };
     return (
-        <header className="">
-        <div className="">
+      <div className='headfoot mb-3'>
+
+        <header className="container">
+        <div className="row">
           <Link to="">
-            <h1 className='m-5'>Address Book</h1> 
+            <h1 className='m-3'>Address Book</h1> 
           </Link>
   
-          <nav className="text-center">
+          <nav className="text-center mb-3">
             {Auth.loggedIn() ? (
               <>          
               <button onClick={logout} className="btn btn-info">Click to Logout
             </button>
-            <br></br>
-            <hr></hr>
+
             </>
             ) : (
               <>
-              <button className="btn btn-info mx-1"><Link to="/login">Login</Link>
+              <button className="btn btn-info mx-1 blk_text"><Link to="/login">Login</Link>
             </button>
 
-            <button className="btn btn-info mx-1"><Link to="/Signup">Sign Up</Link>
+            <button className="btn btn-info mx-1 blk_text"><Link to="/Signup">Sign Up</Link>
             </button>
-            <br></br>
-            <hr></hr>
+
               </>
               
             )}
           </nav>
         </div>
       </header>
+
+        </div>
     )
 }
 

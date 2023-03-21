@@ -24,7 +24,7 @@ const Home = () => {
         addresses={me.addresses}/>
         </>
         ) : (
-          <h3>Please log in to save addresses!</h3>
+          <h3 className='text-center'>Please log in to save addresses!</h3>
         )}
     </main>
   );
